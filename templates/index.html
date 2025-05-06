@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XGBoost Model Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 5px;
+            width: 90%;
+        }
+        button {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Soil Parameters for Prediction</h2>
+    <form action="/predict" method="post">
+        <input type="number" step="any" name="N" placeholder="N">
+        <input type="number" step="any" name="P" placeholder="P">
+        <input type="number" step="any" name="K" placeholder="K">
+        <input type="number" step="any" name="pH" placeholder="pH">
+        <input type="number" step="any" name="EC" placeholder="EC">
+        <input type="number" step="any" name="OC" placeholder="OC">
+        <input type="number" step="any" name="S" placeholder="S">
+        <input type="number" step="any" name="Zn" placeholder="Zn">
+        <input type="number" step="any" name="Fe" placeholder="Fe">
+        <input type="number" step="any" name="Cu" placeholder="Cu">
+        <input type="number" step="any" name="Mn" placeholder="Mn">
+        <input type="number" step="any" name="B" placeholder="B">
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <h3>{{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
